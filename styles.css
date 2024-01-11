@@ -1,3 +1,162 @@
+:root {
+  /*Light theme*/
+  --light-text: #191821;
+  --light-bg: #FAFAFA;
+  --light-theme: #d34a97;
+  --light-hover: #902361;
+  --light-switch-shadow: #373d4e;
+  --light-switch-icon: "🌒";
+  --light-switch-text: "dark mode?";
+  /*Dark theme*/
+  --dark-text: #FAFAFA;
+  --dark-bg: #191821;
+  --dark-theme: #bd93f9;
+  --dark-hover: hsl(265, 89%, 50%);
+  --dark-switch-shadow: #fce477;
+  --dark-switch-icon: "🌔";
+  --dark-switch-text: "light mode?";
+  /*Default theme*/
+  --text-color: var(--light-text);
+  --bg-color: var(--light-bg);
+  --theme-color: var(--light-theme);
+  --hover-color: var(--light-hover);
+  --switch-shadow-color: var(--light-switch-shadow);
+  --switch-icon: var(--light-switch-icon);
+  --switch-text: var(--light-switch-text);
+  font-size: 10px;
+
+  --normal-font-size-b: 3rem;
+  --normal-font-size-n: 2rem;
+  --normal-font-size-s: 1.6rem;
+}
+
+.theme-switch {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.theme-switch:checked~#page {
+  --text-color: var(--dark-text);
+  --bg-color: var(--dark-bg);
+  --theme-color: var(--dark-theme);
+  --hover-color: var(--dark-hover);
+  --switch-shadow-color: var(--dark-switch-shadow);
+  --switch-icon: var(--dark-switch-icon);
+  --switch-text: var(--dark-switch-text);
+}
+
+.switch-label::before {
+  content: var(--switch-icon);
+  /* font-size: var(--normal-font-size-b); */
+  transition: text-shadow .2s;
+}
+
+
+.switch-label:hover::before {
+  text-shadow: 0 0 15px var(--switch-shadow-color);
+  cursor: pointer;
+}
+
+.switch-label:focus {
+  text-shadow: 0 0 15px var(--switch-shadow-color);
+}
+
+#page {
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+header {
+  position: sticky;
+  background-color: var(--primaryColorBlack);
+  padding: 20px 40px;
+  box-shadow: 0px 1px 8px black;
+}
+
+header ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--normal-font-size-n);
+}
+
+li {
+  list-style-type: none;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 body {
-  background-color: #111121;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--normal-font-size-n);
+
+}
+
+.main-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  margin: 2% 25%;
+  padding: 10px 100px;
+}
+
+.one-line {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  max-width: 100%;
+  width: 100%;
+  gap: 15px;
+}
+
+select {
+  font-size: var(--normal-font-size-n);
+  border-radius: 3px;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+
+select:hover {
+  border-color: var(--theme-color);
+}
+
+select:focus {
+  outline: 0.1em solid var(--theme-color);
+  box-shadow: 0 0 0.1em var(--theme-color);
+}
+
+input {
+  vertical-align: top;
+  outline: none;
+  padding: 1rem 1rem;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--text-color);
+  font-size: var(--normal-font-size-n);
+  border-radius: 3px;
+}
+
+input:focus {
+  outline: 0.1em solid var(--theme-color);
+  box-shadow: 0 0 0.1em var(--theme-color);
+}
+
+input[type="submit"] {
+  background-color: var(--theme-color);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--hover-color);
+  transition: background-color 0.2s;
 }

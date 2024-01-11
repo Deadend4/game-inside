@@ -9,7 +9,42 @@
 </head>
 
 <body>
+  <input type="checkbox" id="theme-switch" class="theme-switch">
+  <div id="page">
+    <header>
+      <ul>
+        <li><a href="index.html" class="logo">GAME INSIDE</a></li>
+        <li>
+          <label for="theme-switch" class="switch-label" title="Сменить тему"></label>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div class="main-content">
+        <p>На данной странице Вы можете поиграть в викторину на игровую тематику.</p>
+        <form class="one-line">
+          <label for="mode-select">Выберите сложность:</label>
+          <select name="modes" id="mode-select">
+            <option value="easy">Легкая</option>
+            <option value="normal">Средняя</option>
+            <option value="hard">Сложная</option>
+          </select>
+
+          <label for="questions">Выберите количество вопросов:</label>
+          <input type="number" id="questions" name="questions" min="5" max="100" value="10" />
+          <input type="submit" value="Играть">
+        </form>
+
+
+      </div>
+
+  </div>
+
+  </main>
+
+  </div>
   <script src="based.js"></script>
+  <script src="themeStorage.js"></script>
 </body>
 
 </html>

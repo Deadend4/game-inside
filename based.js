@@ -60,5 +60,4 @@ function compareDifficulty(a, b) {
     return 0;
   }
 }
-
-startRound(2);
+startRound(3); 
