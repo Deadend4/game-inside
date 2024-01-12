@@ -25,9 +25,14 @@
   --switch-text: var(--light-switch-text);
   font-size: 10px;
 
+  /*Font-Sizes*/
   --normal-font-size-b: 3rem;
   --normal-font-size-n: 2rem;
   --normal-font-size-s: 1.6rem;
+  --normal-font-size-vs: 1rem;
+  /*Margins*/
+  --default-margin: 2rem 4rem;
+  --ul-margin: 2rem;
 }
 
 .theme-switch {
@@ -67,14 +72,14 @@
 #page {
   background: var(--bg-color);
   color: var(--text-color);
-  min-height: 100vh;
+  min-height: 100%;
   transition: background-color 0.25s, color 0.25s;
 }
 
 header {
   position: sticky;
   background-color: var(--primaryColorBlack);
-  padding: 20px 40px;
+  padding: var(--default-margin);
   box-shadow: 0px 1px 8px black;
 }
 
@@ -86,28 +91,36 @@ header ul {
   font-size: var(--normal-font-size-n);
 }
 
+h1 {
+  font-size: var(--normal-font-size-b);
+}
+
 li {
   list-style-type: none;
 }
 
 .logo {
-  text-decoration: none;
+  text-decoration-line: none;
   color: var(--text-color);
+}
+
+.logo:hover {
+  text-decoration-line: overline;
+  text-decoration-thickness: 3px;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: var(--normal-font-size-n);
-
 }
 
 .main-content {
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  margin: 2% 25%;
-  padding: 10px 100px;
+  margin: 0 20vw;
+  padding: 5vh 10vw 5vh;
 }
 
 .one-line {
@@ -159,4 +172,28 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--hover-color);
   transition: background-color 0.2s;
+}
+
+.link {
+  color: var(--theme-color);
+  text-decoration-line: none;
+}
+
+.link:hover {
+  color: var(--hover-color);
+  text-decoration-line: overline;
+  text-decoration-thickness: 3px;
+}
+
+.difficult-ul {
+  margin: var(--ul-margin);
+}
+
+.difficult-ul>li {
+  list-style-type: square;
+}
+
+.important-info {
+  font-size: var(--normal-font-size-vs);
+  margin: 0;
 }

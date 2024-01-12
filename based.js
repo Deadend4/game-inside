@@ -1,4 +1,4 @@
-async function startRound(numberOfQuestions = 10) {
+async function startRound(difficulty, numberOfQuestions = 10) {
   const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=15&type=multiple`;
   const response = await fetch(url);
   let roundScore = 0;
@@ -60,4 +60,4 @@ function compareDifficulty(a, b) {
     return 0;
   }
 }
-startRound(3); 
+// startRound(3); 
