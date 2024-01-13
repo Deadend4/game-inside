@@ -18,45 +18,44 @@
     <header>
       <ul>
         <li><a href="index.html" class="logo">GAME INSIDE</a></li>
-        <li><a href="statistic.html" class="link">Статистика</a></li>
+        <li><a href="statistic.html" class="link">Statistics</a></li>
         <li>
-          <label for="theme-switch" class="switch-label" title="Сменить тему"></label>
+          <label for="theme-switch" class="switch-label" title="Change theme"></label>
         </li>
       </ul>
     </header>
     <main>
       <div class="main-content">
-        <h1>ОБ ИГРЕ</h1>
-        <p>Game Inside – это викторина на тему видеоигр.
-          Отправляйтесь в удивительный мир вопросов и ответов, проверяйте свои знания и зарабатывайте очки*!
+        <h1>About</h1>
+        <p>Game Inside is a quiz on the topic of video games.
+          Embark on an amazing world of questions and answers, test your knowledge and earn points*!
         </p>
-        <p class="important-info">* - важное уточнение: все заработанные очки хранятся в localStorage и вы легко
-          можете их потерять!</p>
-        <h1>ПРАВИЛА</h1>
-        <p>Правила викторины очень просты: сайт дает Вам вопрос и четыре варианта ответа. Лишь один из них окажется
-          правильным.
-          В конце Вы сможете посмотреть всю статистику и узнать, где были допущены ошибки.
+        <p class="important-info">* – all earned points are stored in localStorage and you can
+          easily you can lose them!</p>
+        <h1>Rules</h1>
+        <p>The rules of the quiz are very simple: the site gives you a question and four possible answers. Only one of
+          them will be correct. At the end, you will be able to view all the statistics and find out where mistakes were
+          made.
         </p>
-        <h1>НАСТРОЙКА</h1>
-        <p>Параметры ниже помогут Вам настроить викторину.
-          За каждый правильный ответ на вопрос Вы будете получать баллы в соответствии с выбранной сложностью:
+        <h1>Configuration</h1>
+        <p>The options below will help you set up the quiz. For each correct answer to a question, you will receive
+          points according to the chosen difficulty:
         </p>
         <ul class="difficult-ul">
-          <li>Легкая – 2 балла</li>
-          <li>Средняя – 3 балла</li>
-          <li>Высокая – 4 балла</li>
+          <li>Easy – 2 coins</li>
+          <li>Medium – 3 coins</li>
+          <li>Hard – 4 coins</li>
         </ul>
         <form class="one-line" id="paramForm" action="playground.html" method="get">
-          <label for="mode-select">Выберите сложность:</label>
+          <label for="mode-select">Choose the difficulty:</label>
           <select name="modes" id="mode-select">
-            <option value="easy">Легкая</option>
-            <option value="medium">Средняя</option>
-            <option value="hard">Высокая</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
           </select>
-
-          <label for="questions">Выберите количество вопросов:</label>
+          <label for="questions">Select the number of questions:</label>
           <input type="number" id="questions" name="questions" min="5" max="100" value="10" />
-          <input type="submit" value="Играть">
+          <input type="submit" value="Play">
         </form>
 
 

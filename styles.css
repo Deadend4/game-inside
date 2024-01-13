@@ -97,6 +97,7 @@ header ul {
 }
 
 h1 {
+  text-transform: uppercase;
   font-size: var(--normal-font-size-b);
 }
 
@@ -176,6 +177,7 @@ input:focus {
 }
 
 input[type="submit"] {
+  color: var(--bg-color);
   background-color: var(--theme-color);
 }
 
@@ -218,6 +220,7 @@ input[type="submit"]:hover {
 
 .answer-button {
   font-size: var(--normal-font-size-n);
+  color: var(--bg-color);
   background-color: var(--theme-color);
   padding: 1rem;
   border-radius: 3px;

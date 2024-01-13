@@ -2,7 +2,7 @@ const queryParameters = location.search.substring(1).split("&");
 const mode = queryParameters[0].split("=")[1];
 const numberOfQuestions = queryParameters[1].split("=")[1];
 startRound(mode, numberOfQuestions);
-async function startRound(gameMode = "medium", numberOfQuestions = 10) {
+async function startRound(gameMode = "easy", numberOfQuestions = 10) {
   const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=15&difficulty=${gameMode}&type=multiple`;
   const main = document.querySelector(".main-content");
 
@@ -17,7 +17,7 @@ async function startRound(gameMode = "medium", numberOfQuestions = 10) {
         ...questions[i].incorrect_answers,
       ];
       shuffle(answers);
-      main.append(`Вопрос #${i + 1}`);
+      main.append(`Question #${i + 1}`);
       let questionHTML = document.createElement('p');
       questionHTML.innerHTML = questions[i].question;
       main.append(questionHTML);
