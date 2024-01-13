@@ -1,5 +1,11 @@
-async function startRound(difficulty, numberOfQuestions = 10) {
-  const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=15&type=multiple`;
+const queryParameters = location.search.substring(1).split("&");
+const mode = queryParameters[0].split("=")[1];
+const numberOfQuestions = queryParameters[1].split("=")[1];
+startRound(mode, numberOfQuestions);
+async function startRound(gameMode = "medium", numberOfQuestions = 10) {
+  const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=15&difficulty=${gameMode}&type=multiple`;
+  const main = document.querySelector(".main-content");
+
   const response = await fetch(url);
   let roundScore = 0;
   if (response.ok) {
@@ -11,11 +17,30 @@ async function startRound(difficulty, numberOfQuestions = 10) {
         ...questions[i].incorrect_answers,
       ];
       shuffle(answers);
-      const answer = prompt(`${questions[i].question}
-      1) ${answers[0]}      
-      2) ${answers[1]}
-      3) ${answers[2]}      
-      4) ${answers[3]}`);
+      main.append(`Вопрос #${i + 1}`);
+      let questionHTML = document.createElement('p');
+      questionHTML.innerHTML = questions[i].question;
+      main.append(questionHTML);
+      let div = document.createElement('div');
+      div.classList.add('buttons-line');
+      main.append(div);
+      let answersHTML = [];
+      answers.forEach(item => {
+        answersHTML = document.createElement('button');
+        answersHTML.innerHTML = item;
+        answersHTML.classList.add('answer-button');
+        div.append(answersHTML);
+      });
+
+
+
+
+      // const answer = prompt(`${questions[i].question}
+      // 1) ${answers[0]}      
+      // 2) ${answers[1]}
+      // 3) ${answers[2]}      
+      // 4) ${answers[3]}`);
+      const answer = null;
       if (
         (isNaN(+answer) && questions[i].correct_answer === answer) ||
         questions[i].correct_answer === answers[+answer - 1]
@@ -27,7 +52,7 @@ async function startRound(difficulty, numberOfQuestions = 10) {
   } else {
     alert('Кажется, что-то пошло не так. Код ошибки: ' + response.status);
   }
-  alert('Набрано очков за раунд: ' + roundScore);
+  // alert('Набрано очков за раунд: ' + roundScore);
 }
 
 function shuffle(array) {
