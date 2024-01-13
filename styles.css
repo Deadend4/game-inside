@@ -115,7 +115,7 @@ li {
 }
 
 .logo:hover {
-  text-decoration-line: overline;
+  text-decoration-line: underline;
   text-decoration-thickness: 3px;
 }
 
@@ -193,7 +193,7 @@ input[type="submit"]:hover {
 
 .link:hover {
   color: var(--hover-color);
-  text-decoration-line: overline;
+  text-decoration-line: underline;
   text-decoration-thickness: 3px;
 }
 
