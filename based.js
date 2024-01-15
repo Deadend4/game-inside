@@ -52,12 +52,17 @@ function* startGame(response) {
       });
       div.append(answersHTML);
     });
-    userAnswers[i] = yield "wait";
-    if (response.correct_answer == userAnswers[i]) {
+    if (response[i].correct_answer == (userAnswers[i] = yield "wait")) {
       roundScore++;
     }
   }
-
+  while (main.lastElementChild) {
+    main.removeChild(main.lastElementChild);
+  }
+  const totalScoreLabel = document.createElement('p');
+  totalScoreLabel.innerHTML = `Total Score: ${roundScore}`;
+  main.append(totalScoreLabel);
+  return roundScore;
 }
 
 function shuffle(array) {
