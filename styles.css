@@ -4,7 +4,7 @@
   --light-bg: #FAFAFA;
   --light-theme: #d34a97;
   --light-hover: #902361;
-  --light-answer-block: rgb(255, 224, 137);
+  --light-answer-block: rgb(179, 179, 179);
   --light-switch-shadow: #373d4e;
   --light-switch-icon: "🌒";
   --light-switch-text: "dark mode?";
@@ -29,12 +29,30 @@
   --switch-text: var(--light-switch-text);
   font-size: 10px;
 
-  /*Font-Sizes*/
+  /*Desktop-Font-Sizes*/
   --normal-font-size-b: 2.5rem;
   --normal-font-size-h: 2rem;
   --normal-font-size-n: 1.6rem;
   --normal-font-size-s: 1.4rem;
   --normal-font-size-vs: 1.2rem;
+  /*Tablet-Font-Size*/
+  --tablet-font-size-b: 2.2rem;
+  --tablet-font-size-h: 1.8rem;
+  --tablet-font-size-n: 1.5rem;
+  --tablet-font-size-s: 1.3rem;
+  --tablet-font-size-vs: 1.1rem;
+  /*Mobile-Font-Size*/
+  --mobile-font-size-b: 2rem;
+  --mobile-font-size-h: 1.6rem;
+  --mobile-font-size-n: 1.4rem;
+  --mobile-font-size-s: 1.2rem;
+  --mobile-font-size-vs: 1rem;
+  /*Default-Font-Size*/
+  --font-size-b: var(--normal-font-size-b);
+  --font-size-h: var(--normal-font-size-h);
+  --font-size-n: var(--normal-font-size-n);
+  --font-size-s: var(--normal-font-size-s);
+  --font-size-vs: var(--normal-font-size-vs);
   /*Margins*/
   --default-margin: 2rem 4rem;
   --ul-margin: 2rem;
@@ -87,32 +105,26 @@ header {
   position: sticky;
   top: -1px;
   background-color: var(--bg-color);
-  padding: var(--default-margin);
+  padding: 1vw 3vw;
   box-shadow: 0px 1px 8px black;
   z-index: 10;
   transition: background-color 0.25s, color 0.25s;
-}
-
-header ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--normal-font-size-h);
+  font-size: var(--font-size-h);
 }
 
 h1 {
   text-transform: uppercase;
-  font-size: var(--normal-font-size-b);
+  font-size: var(--font-size-b);
 }
 
 ul {
   padding-inline-start: 0;
 }
 
-li {
-  list-style-type: none;
-}
 
 .logo {
   text-decoration-line: none;
@@ -127,7 +139,7 @@ li {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: var(--normal-font-size-n);
+  font-size: var(--font-size-n);
 }
 
 .main-content {
@@ -149,10 +161,11 @@ body {
 }
 
 select {
-  font-size: var(--normal-font-size-n);
+  font-size: var(--font-size-n);
   border-radius: 3px;
   padding: 1rem 1rem;
   width: 100%;
+  border: 1px solid var(--text-color);
 }
 
 select:hover {
@@ -172,7 +185,7 @@ input {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid var(--text-color);
-  font-size: var(--normal-font-size-n);
+  font-size: var(--font-size-n);
   border-radius: 3px;
 }
 
@@ -184,6 +197,7 @@ input:focus {
 input[type="submit"] {
   color: var(--bg-color);
   background-color: var(--theme-color);
+  border-style: none;
 }
 
 input[type="submit"]:hover {
@@ -212,7 +226,7 @@ input[type="submit"]:hover {
 }
 
 .important-info {
-  font-size: var(--normal-font-size-s);
+  font-size: var(--font-size-s);
 }
 
 .buttons-line {
@@ -225,7 +239,7 @@ input[type="submit"]:hover {
 }
 
 .answer-button {
-  font-size: var(--normal-font-size-b);
+  font-size: var(--font-size-n);
   color: var(--bg-color);
   background-color: var(--theme-color);
   padding: 1rem;
@@ -243,7 +257,7 @@ input[type="submit"]:hover {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  font-size: var(--normal-font-size-b);
+  font-size: var(--font-size-n);
 }
 
 .result-block {
@@ -251,7 +265,7 @@ input[type="submit"]:hover {
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
-  font-size: var(--normal-font-size-b);
+  font-size: var(--font-size-n);
 }
 
 .result-question {
@@ -276,4 +290,30 @@ input[type="submit"]:hover {
   margin: 1vh 0;
   border-radius: 10px;
   padding: 1vh;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --font-size-b: var(--tablet-font-size-b);
+    --font-size-h: var(--tablet-font-size-h);
+    --font-size-n: var(--tablet-font-size-n);
+    --font-size-s: var(--tablet-font-size-s);
+    --font-size-vs: var(--tablet-font-size-vs);
+  }
+}
+
+@media (max-width: 806px) {
+  :root {
+    --font-size-b: var(--mobile-font-size-b);
+    --font-size-h: var(--mobile-font-size-h);
+    --font-size-n: var(--mobile-font-size-n);
+    --font-size-s: var(--mobile-font-size-s);
+    --font-size-vs: var(--mobile-font-size-vs);
+  }
+}
+
+@media (max-width: 350px) {
+  header {
+    padding: 4vw;
+  }
 }
