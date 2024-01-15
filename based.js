@@ -65,23 +65,30 @@ function* startGame(response) {
   totalScoreLabel.innerHTML = `Total Score: ${roundScore}`;
   main.append(totalScoreLabel);
   for (let i = 0; i < numberOfQuestions; i++) {
+
+    let answerBlock = document.createElement('div');
+    answerBlock.classList.add("answer-block");
+    main.append(answerBlock);
+
     let question = document.createElement('p');
     question.classList.add("result-question");
     question.innerHTML = `${i + 1}. ${response[i].question}`;
-    main.append(question);
+    answerBlock.append(question);
 
     let uAnswer = document.createElement('p');
     uAnswer.classList.add("result-answer");
-    uAnswer.innerHTML = `Your answer: ${userAnswers[i]}`;
-    main.append(uAnswer);
+    uAnswer.innerHTML = `Your answer: ${userAnswers[i]} ${userAnswers[i] === response[i].correct_answer ? '✔' : '✖'}`;
+    answerBlock.append(uAnswer);
     let rAnswer = document.createElement('p');
     rAnswer.classList.add("result-answer");
     rAnswer.innerHTML = `Correct answer: ${response[i].correct_answer}`;
-    main.append(rAnswer);
+    answerBlock.append(rAnswer);
   }
 
   return roundScore;
 }
+
+
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;

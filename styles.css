@@ -4,6 +4,7 @@
   --light-bg: #FAFAFA;
   --light-theme: #d34a97;
   --light-hover: #902361;
+  --light-answer-block: rgb(255, 224, 137);
   --light-switch-shadow: #373d4e;
   --light-switch-icon: "🌒";
   --light-switch-text: "dark mode?";
@@ -12,6 +13,8 @@
   --dark-bg: #191821;
   --dark-theme: #bd93f9;
   --dark-hover: hsl(265, 89%, 50%);
+  --dark-answer-block: #38374c;
+
   --dark-switch-shadow: #fce477;
   --dark-switch-icon: "🌔";
   --dark-switch-text: "light mode?";
@@ -20,6 +23,7 @@
   --bg-color: var(--light-bg);
   --theme-color: var(--light-theme);
   --hover-color: var(--light-hover);
+  --answer-block: var(--light-answer-block);
   --switch-shadow-color: var(--light-switch-shadow);
   --switch-icon: var(--light-switch-icon);
   --switch-text: var(--light-switch-text);
@@ -49,6 +53,7 @@
   --bg-color: var(--dark-bg);
   --theme-color: var(--dark-theme);
   --hover-color: var(--dark-hover);
+  --answer-block: var(--dark-answer-block);
   --switch-shadow-color: var(--dark-switch-shadow);
   --switch-icon: var(--dark-switch-icon);
   --switch-text: var(--dark-switch-text);
@@ -253,11 +258,22 @@ input[type="submit"]:hover {
   background-color: var(--theme-color);
   padding: 1rem;
   margin: 0;
-  margin-top: 1vh;
+  color: var(--bg-color);
+  border-radius: 3px;
 }
 
 .result-answer {
   padding: 1rem;
   margin: 0;
   margin-top: 1vh;
+  color: var(--text-color);
+
+}
+
+.answer-block {
+  background-color: var(--answer-block);
+  width: 100%;
+  margin: 1vh 0;
+  border-radius: 10px;
+  padding: 1vh;
 }
