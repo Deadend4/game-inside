@@ -1,58 +1,63 @@
 const queryParameters = location.search.substring(1).split("&");
 const mode = queryParameters[0].split("=")[1];
 const numberOfQuestions = queryParameters[1].split("=")[1];
-startRound(mode, numberOfQuestions);
-async function startRound(gameMode = "easy", numberOfQuestions = 10) {
+let generatorGame;
+getQuestions(mode, numberOfQuestions).then((value) => {
+  generatorGame = startGame(value)
+  generatorGame.next()
+});
+
+async function getQuestions(gameMode = "easy", numberOfQuestions = 10) {
   const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=15&difficulty=${gameMode}&type=multiple`;
-  const main = document.querySelector(".main-content");
-
   const response = await fetch(url);
-  let roundScore = 0;
   if (response.ok) {
-    let questions = (await response.json()).results;
-    console.log(questions.sort(compareDifficulty));
-    for (let i = 0; i < numberOfQuestions; i++) {
-      const answers = [
-        questions[i].correct_answer,
-        ...questions[i].incorrect_answers,
-      ];
+    const questions = (await response.json()).results;
+    const newQuestions = questions.map(item => {
+      let answers = [item.correct_answer, ...item.incorrect_answers];
       shuffle(answers);
-      main.append(`Question #${i + 1}`);
-      let questionHTML = document.createElement('p');
-      questionHTML.innerHTML = questions[i].question;
-      main.append(questionHTML);
-      let div = document.createElement('div');
-      div.classList.add('buttons-line');
-      main.append(div);
-      let answersHTML = [];
-      answers.forEach(item => {
-        answersHTML = document.createElement('button');
-        answersHTML.innerHTML = item;
-        answersHTML.classList.add('answer-button');
-        div.append(answersHTML);
-      });
-
-
-
-
-      // const answer = prompt(`${questions[i].question}
-      // 1) ${answers[0]}      
-      // 2) ${answers[1]}
-      // 3) ${answers[2]}      
-      // 4) ${answers[3]}`);
-      const answer = null;
-      if (
-        (isNaN(+answer) && questions[i].correct_answer === answer) ||
-        questions[i].correct_answer === answers[+answer - 1]
-      ) {
-        roundScore++;
-        console.log(roundScore);
-      }
-    }
+      return { ...item, answers };
+    });
+    console.log(newQuestions);
+    return newQuestions;
   } else {
     alert('Кажется, что-то пошло не так. Код ошибки: ' + response.status);
+    return null;
   }
-  // alert('Набрано очков за раунд: ' + roundScore);
+}
+function* startGame(response) {
+  const main = document.querySelector(".main-content");
+  main.classList.add("game-block");
+  let roundScore = 0;
+  const userAnswers = [];
+  for (let i = 0; i < numberOfQuestions; i++) {
+    while (main.lastElementChild) {
+      main.removeChild(main.lastElementChild);
+    }
+    let qustionNumber = document.createElement('p');
+    qustionNumber.innerHTML = `Question #${i + 1}`;
+    main.append(qustionNumber);
+    let questionHTML = document.createElement('p');
+    questionHTML.innerHTML = response[i].question;
+    main.append(questionHTML);
+    let div = document.createElement('div');
+    div.classList.add('buttons-line');
+    main.append(div);
+    let answersHTML = [];
+    response[i].answers.forEach(item => {
+      answersHTML = document.createElement('button');
+      answersHTML.innerHTML = item;
+      answersHTML.classList.add('answer-button');
+      answersHTML.addEventListener('click', () => {
+        generatorGame.next(item);
+      });
+      div.append(answersHTML);
+    });
+    userAnswers[i] = yield "wait";
+    if (response.correct_answer == userAnswers[i]) {
+      roundScore++;
+    }
+  }
+
 }
 
 function shuffle(array) {
@@ -85,4 +90,3 @@ function compareDifficulty(a, b) {
     return 0;
   }
 }
-// startRound(3); 

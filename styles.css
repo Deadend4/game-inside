@@ -26,7 +26,7 @@
   font-size: 10px;
 
   /*Font-Sizes*/
-  --normal-font-size-b: 3rem;
+  --normal-font-size-b: 2.5rem;
   --normal-font-size-h: 2rem;
   --normal-font-size-n: 1.6rem;
   --normal-font-size-s: 1.4rem;
@@ -219,7 +219,7 @@ input[type="submit"]:hover {
 }
 
 .answer-button {
-  font-size: var(--normal-font-size-n);
+  font-size: var(--normal-font-size-b);
   color: var(--bg-color);
   background-color: var(--theme-color);
   padding: 1rem;
@@ -229,4 +229,12 @@ input[type="submit"]:hover {
 .answer-button:hover {
   background-color: var(--hover-color);
   transition: background-color 0.5s;
+}
+
+.game-block {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--normal-font-size-b);
 }
