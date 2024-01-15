@@ -59,12 +59,29 @@ function* startGame(response) {
   while (main.lastElementChild) {
     main.removeChild(main.lastElementChild);
   }
+  main.classList.remove("game-block");
+  main.classList.add("result-block");
   const totalScoreLabel = document.createElement('p');
   totalScoreLabel.innerHTML = `Total Score: ${roundScore}`;
   main.append(totalScoreLabel);
+  for (let i = 0; i < numberOfQuestions; i++) {
+    let question = document.createElement('p');
+    question.classList.add("result-question");
+    question.innerHTML = `${i + 1}. ${response[i].question}`;
+    main.append(question);
+
+    let uAnswer = document.createElement('p');
+    uAnswer.classList.add("result-answer");
+    uAnswer.innerHTML = `Your answer: ${userAnswers[i]}`;
+    main.append(uAnswer);
+    let rAnswer = document.createElement('p');
+    rAnswer.classList.add("result-answer");
+    rAnswer.innerHTML = `Correct answer: ${response[i].correct_answer}`;
+    main.append(rAnswer);
+  }
+
   return roundScore;
 }
-
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;

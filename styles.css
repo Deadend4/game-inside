@@ -212,10 +212,11 @@ input[type="submit"]:hover {
 
 .buttons-line {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 5vh;
+  width: 100%;
 }
 
 .answer-button {
@@ -224,6 +225,7 @@ input[type="submit"]:hover {
   background-color: var(--theme-color);
   padding: 1rem;
   border-radius: 3px;
+  border-style: none;
 }
 
 .answer-button:hover {
@@ -233,8 +235,29 @@ input[type="submit"]:hover {
 
 .game-block {
   display: flex;
-  flex-flow: column;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   font-size: var(--normal-font-size-b);
+}
+
+.result-block {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: var(--normal-font-size-b);
+}
+
+.result-question {
+  background-color: var(--theme-color);
+  padding: 1rem;
+  margin: 0;
+  margin-top: 1vh;
+}
+
+.result-answer {
+  padding: 1rem;
+  margin: 0;
+  margin-top: 1vh;
 }
