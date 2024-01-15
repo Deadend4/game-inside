@@ -1,27 +1,27 @@
 :root {
   /*Light theme*/
-  --light-text: #191821;
-  --light-bg: #FAFAFA;
-  --light-theme: #d34a97;
-  --light-hover: #902361;
-  --light-answer-block: rgb(179, 179, 179);
+  --light-text: #202020;
+  --light-bg: hsl(192, 26%, 96%);
+  --light-theme: #21c2f8;
+  --light-hover: hsl(195, 94%, 35%);
+  --light-answer-block: hsl(192, 26%, 91%);
   --light-switch-shadow: #373d4e;
   --light-switch-icon: "🌒";
   --light-switch-text: "dark mode?";
   /*Dark theme*/
-  --dark-text: #FAFAFA;
-  --dark-bg: #191821;
-  --dark-theme: #bd93f9;
-  --dark-hover: hsl(265, 89%, 50%);
-  --dark-answer-block: #38374c;
+  --dark-text: #F3F3F3;
+  --dark-bg: hsl(220, 7%, 17%);
+  --dark-theme: #3bbfc3;
+  --dark-hover: #018185;
+  --dark-answer-block: hsl(220, 7%, 22%);
 
   --dark-switch-shadow: #fce477;
   --dark-switch-icon: "🌔";
-  --dark-switch-text: "light mode?";
   /*Default theme*/
   --text-color: var(--light-text);
   --bg-color: var(--light-bg);
   --theme-color: var(--light-theme);
+  --wrong-answer: #e54568;
   --hover-color: var(--light-hover);
   --answer-block: var(--light-answer-block);
   --switch-shadow-color: var(--light-switch-shadow);
@@ -36,7 +36,7 @@
   --normal-font-size-s: 1.5rem;
   --normal-font-size-vs: 1.3rem;
   /*Tablet-Font-Size*/
-  --tablet-font-size-b: 2.2rem;
+  --tablet-font-size-b: 2.3rem;
   --tablet-font-size-h: 1.8rem;
   --tablet-font-size-n: 1.6rem;
   --tablet-font-size-s: 1.4rem;
@@ -237,10 +237,11 @@ input[type="submit"]:hover {
   gap: 1rem;
   margin-bottom: 5vh;
   width: 100%;
+  max-width: 300px;
 }
 
 .answer-button {
-  font-size: var(--font-size-n);
+  font-size: var(--font-size-h);
   color: var(--bg-color);
   background-color: var(--theme-color);
   padding: 1rem;
@@ -258,7 +259,7 @@ input[type="submit"]:hover {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-n);
+  font-size: var(--font-size-b);
 }
 
 .result-block {
@@ -271,6 +272,14 @@ input[type="submit"]:hover {
 
 .result-question {
   background-color: var(--theme-color);
+  padding: 1rem;
+  margin: 0;
+  color: var(--bg-color);
+  border-radius: 3px;
+}
+
+.wrong-result-question {
+  background-color: var(--wrong-answer);
   padding: 1rem;
   margin: 0;
   color: var(--bg-color);

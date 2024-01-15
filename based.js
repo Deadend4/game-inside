@@ -34,6 +34,7 @@ function* startGame(response) {
       main.removeChild(main.lastElementChild);
     }
     let qustionNumber = document.createElement('p');
+    qustionNumber.classList.add("question-number");
     qustionNumber.innerHTML = `Question #${i + 1}`;
     main.append(qustionNumber);
     let questionHTML = document.createElement('p');
@@ -71,12 +72,22 @@ function* startGame(response) {
     main.append(answerBlock);
 
     let question = document.createElement('p');
-    question.classList.add("result-question");
-    question.innerHTML = `${i + 1}. ${response[i].question}`;
-    answerBlock.append(question);
-
     let uAnswer = document.createElement('p');
     uAnswer.classList.add("result-answer");
+    if (userAnswers[i] === response[i].correct_answer) {
+      question.classList.add("result-question");
+      uAnswer.innerHTML = `Your answer: ${userAnswers[i]} ✔}`;
+    } else {
+      question.classList.add("wrong-result-question");
+      uAnswer.innerHTML = `Your answer: ${userAnswers[i]} ✖}`;
+    }
+
+    uAnswer.innerHTML = `Your answer: ${userAnswers[i]} ${userAnswers[i] === response[i].correct_answer ? '✔' : '✖'}`;
+    question.innerHTML = `${i + 1}. ${response[i].question}`;
+
+    answerBlock.append(question);
+    uAnswer.classList.add("result-answer");
+
     uAnswer.innerHTML = `Your answer: ${userAnswers[i]} ${userAnswers[i] === response[i].correct_answer ? '✔' : '✖'}`;
     answerBlock.append(uAnswer);
     let rAnswer = document.createElement('p');
