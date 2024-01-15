@@ -32,21 +32,21 @@
   /*Desktop-Font-Sizes*/
   --normal-font-size-b: 2.5rem;
   --normal-font-size-h: 2rem;
-  --normal-font-size-n: 1.6rem;
-  --normal-font-size-s: 1.4rem;
-  --normal-font-size-vs: 1.2rem;
+  --normal-font-size-n: 1.8rem;
+  --normal-font-size-s: 1.5rem;
+  --normal-font-size-vs: 1.3rem;
   /*Tablet-Font-Size*/
   --tablet-font-size-b: 2.2rem;
   --tablet-font-size-h: 1.8rem;
-  --tablet-font-size-n: 1.5rem;
-  --tablet-font-size-s: 1.3rem;
-  --tablet-font-size-vs: 1.1rem;
+  --tablet-font-size-n: 1.6rem;
+  --tablet-font-size-s: 1.4rem;
+  --tablet-font-size-vs: 1.2rem;
   /*Mobile-Font-Size*/
   --mobile-font-size-b: 2rem;
-  --mobile-font-size-h: 1.6rem;
+  --mobile-font-size-h: 1.7rem;
   --mobile-font-size-n: 1.4rem;
-  --mobile-font-size-s: 1.2rem;
-  --mobile-font-size-vs: 1rem;
+  --mobile-font-size-s: 1.3rem;
+  --mobile-font-size-vs: 1.1rem;
   /*Default-Font-Size*/
   --font-size-b: var(--normal-font-size-b);
   --font-size-h: var(--normal-font-size-h);
@@ -119,6 +119,7 @@ header {
 h1 {
   text-transform: uppercase;
   font-size: var(--font-size-b);
+  margin: 0;
 }
 
 ul {
