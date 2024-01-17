@@ -302,6 +302,14 @@ input[type="submit"]:hover {
   padding: 1vh;
 }
 
+.row-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-between;
+  gap: 2vw;
+}
+
 @media (max-width: 1280px) {
   :root {
     --font-size-b: var(--tablet-font-size-b);

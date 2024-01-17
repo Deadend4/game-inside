@@ -95,6 +95,37 @@ function* startGame(response) {
     rAnswer.innerHTML = `Correct answer: ${response[i].correct_answer}`;
     answerBlock.append(rAnswer);
   }
+  const divButton = document.createElement('div');
+  divButton.classList.add('row-flex');
+  main.append(divButton);
+  if (response.difficulty !== 'hard') {
+    const tryAgain = document.createElement('button');
+    tryAgain.innerHTML = "Try again";
+    tryAgain.classList.add('answer-button');
+    tryAgain.addEventListener('click', () => {
+      location.reload();
+    });
+    divButton.append(tryAgain);
+  }
+
+
+
+
+  const nextLevel = document.createElement('button');
+  nextLevel.innerHTML = "Next Level";
+  nextLevel.classList.add('answer-button');
+  nextLevel.addEventListener('click', () => {
+    location.reload();
+  });
+  divButton.append(nextLevel);
+  // switch (response.difficulty) {
+  //   case "easy":
+
+  //     break;
+
+  //   default:
+  //     break;
+  // }
 
   return roundScore;
 }
