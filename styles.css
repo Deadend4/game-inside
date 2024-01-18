@@ -6,21 +6,22 @@
   --light-hover: hsl(195, 94%, 35%);
   --light-answer-block: hsl(192, 26%, 91%);
   --light-switch-shadow: #373d4e;
-  --light-switch-icon: "🌒";
-  --light-switch-text: "dark mode?";
+  --light-switch-icon: '🌒';
+  --light-switch-text: 'dark mode?';
   /*Dark theme*/
-  --dark-text: #F3F3F3;
+  --dark-text: #f3f3f3;
   --dark-bg: hsl(220, 7%, 17%);
   --dark-theme: #3bbfc3;
   --dark-hover: #018185;
   --dark-answer-block: hsl(220, 7%, 22%);
 
   --dark-switch-shadow: #fce477;
-  --dark-switch-icon: "🌔";
+  --dark-switch-icon: '🌔';
   /*Default theme*/
   --text-color: var(--light-text);
   --bg-color: var(--light-bg);
   --theme-color: var(--light-theme);
+  --correct-answer: #45e588;
   --wrong-answer: #e54568;
   --hover-color: var(--light-hover);
   --answer-block: var(--light-answer-block);
@@ -66,7 +67,7 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-.theme-switch:checked~#page {
+.theme-switch:checked ~ #page {
   --text-color: var(--dark-text);
   --bg-color: var(--dark-bg);
   --theme-color: var(--dark-theme);
@@ -80,9 +81,8 @@
 .switch-label::before {
   content: var(--switch-icon);
   /* font-size: var(--normal-font-size-b); */
-  transition: text-shadow .2s;
+  transition: text-shadow 0.2s;
 }
-
 
 .switch-label:hover::before {
   text-shadow: 0 0 15px var(--switch-shadow-color);
@@ -106,7 +106,7 @@ header {
   top: -1px;
   background-color: var(--bg-color);
   padding: 1vw 3vw;
-  box-shadow: 0px 1px 8px black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   z-index: 10;
   transition: background-color 0.25s, color 0.25s;
   display: flex;
@@ -125,7 +125,6 @@ h1 {
 ul {
   padding-inline-start: 0;
 }
-
 
 .logo {
   text-decoration-line: none;
@@ -195,13 +194,13 @@ input:focus {
   box-shadow: 0 0 0.1em var(--theme-color);
 }
 
-input[type="submit"] {
+input[type='submit'] {
   color: var(--bg-color);
   background-color: var(--theme-color);
   border-style: none;
 }
 
-input[type="submit"]:hover {
+input[type='submit']:hover {
   background-color: var(--hover-color);
   transition: background-color 0.5s;
 }
@@ -222,7 +221,7 @@ input[type="submit"]:hover {
   padding-bottom: 1vw;
 }
 
-.difficult-ul>li {
+.difficult-ul > li {
   list-style-type: disc;
 }
 
@@ -247,6 +246,8 @@ input[type="submit"]:hover {
   padding: 1rem;
   border-radius: 3px;
   border-style: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .answer-button:hover {
@@ -260,6 +261,10 @@ input[type="submit"]:hover {
   justify-content: center;
   align-items: center;
   font-size: var(--font-size-b);
+  max-width: 100vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .result-block {
@@ -272,6 +277,14 @@ input[type="submit"]:hover {
 
 .result-question {
   background-color: var(--theme-color);
+  padding: 1rem;
+  margin: 0;
+  color: var(--bg-color);
+  border-radius: 3px;
+}
+
+.correct-result-question {
+  background-color: var(--correct-answer);
   padding: 1rem;
   margin: 0;
   color: var(--bg-color);
@@ -291,7 +304,6 @@ input[type="submit"]:hover {
   margin: 0;
   margin-top: 1vh;
   color: var(--text-color);
-
 }
 
 .answer-block {
@@ -302,12 +314,24 @@ input[type="submit"]:hover {
   padding: 1vh;
 }
 
+.total-score {
+  align-self: center;
+  justify-content: center;
+}
+
+.column-flex {
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  gap: 10px;
+  width: 100%;
+}
 .row-flex {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: space-between;
-  gap: 2vw;
+  flex-flow: row nowrap;
+  align-self: center;
+  gap: 10px;
+  margin: 2vw 0;
 }
 
 @media (max-width: 1280px) {
